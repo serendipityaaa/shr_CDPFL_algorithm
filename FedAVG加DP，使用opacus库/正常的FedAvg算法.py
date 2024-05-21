@@ -9,10 +9,10 @@ import torch
 import flgo.benchmark.mnist_classification as mnist
 import flgo.benchmark.partition as fbp
 
-task = './my_task1'
-# flgo.gen_task_by_(mnist, fbp.IIDPartitioner(num_clients=10), task)
-# runner = flgo.init(task, fedavg, option={'num_rounds':5, 'local_test':True, 'learning_rate':0.005, })
-# runner.run()
+task = './my_task2'
+flgo.gen_task_by_(mnist, fbp.IIDPartitioner(num_clients=10), task)
+runner = flgo.init(task, fedavg, option={'num_rounds':20, 'local_test':True, 'learning_rate':0.005, })
+runner.run()
 analysis_plan = {
     'Selector':{
         'task': task,
